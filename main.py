@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 df=pd.read_excel("C:\\Users\\DELL\\Downloads\\customer_purchase_behaviour_dataset.xlsx")
 
@@ -125,3 +124,58 @@ print(f"Highest Revenue Product: {product_revenue.idxmax()}\n")
 
 print(f"Highest Revenue Producing Gender: {gen_revenue.idxmax()}")
 print(f"Most Purchased Age Group Category: {age_cate.idxmax()}")
+
+# Visualization:-
+
+plt.pie(d.values,labels=d.index,autopct="%1.1f%%")
+plt.title("Payment Method Distribution")
+plt.show()
+
+plt.bar(cate_revenue.index, cate_revenue.values,  color=["red","blue","green","orange","purple"])
+plt.title("Category Revenue")
+plt.xticks(rotation=45)
+plt.xlabel("Category")
+plt.ylabel("Revenue")
+plt.show()
+
+
+plt.bar(city_revenue.index, city_revenue.values,color=["cyan","yellow","pink","lime","magenta"])
+plt.title("City-wise Revenue")
+plt.xticks(rotation=45)
+plt.xlabel("City")
+plt.ylabel("Revenue")
+plt.show()
+
+
+product_revenuee = product_revenue.sort_values( ascending=False).head(5)
+plt.barh(product_revenuee.index, product_revenuee.values, color=["gold","silver","coral","skyblue","violet"])
+plt.title("Top 5 Revenue Products")
+plt.xlabel("Revenue")
+plt.ylabel("Products")
+plt.show()
+
+plt.barh( [str(i) for i in gen_cate.index],gen_cate.values,color=["red","blue","green","orange","purple","cyan","pink","gold","lime","magenta"])
+plt.title("Gender Purchase Analysis")
+plt.xlabel("Products Purchased")
+plt.ylabel("Gender - Category")
+plt.tight_layout() # labels properly dikhte hain, title cut nahi hota, graph clean lagta hai
+plt.show()
+
+plt.barh([str(i) for i in age_cate.index],age_cate.values,color=["red","blue","green","orange","purple","cyan","pink","gold","lime","magenta"])
+plt.title("Age Group Analysis")
+plt.xlabel("Products Purchased")
+plt.ylabel("Age Group - Category")
+plt.tight_layout()
+plt.show()
+
+product_quantityy = product_quantity.sort_values( ascending=False).head(5)
+plt.barh(product_quantityy.index, product_quantityy.values, color=["gold","silver","coral","skyblue","violet"])
+plt.title("Top 5 Products (Quantity)")
+plt.xlabel("Quantity")
+plt.ylabel("Products")
+plt.show()
+
+
+
+
+
